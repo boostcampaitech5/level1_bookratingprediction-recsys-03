@@ -1,2 +1,5 @@
 # Ignore images in data folder
 data/images/
+
+# Ignore .ipynb_checkpoints
+junwon/.ipynb_checkpoints
