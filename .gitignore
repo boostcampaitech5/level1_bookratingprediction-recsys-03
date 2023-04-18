@@ -3,3 +3,6 @@ data/images/
 
 # Ignore .ipynb_checkpoints
 junwon/.ipynb_checkpoints
+
+# 예측 데이터 파일 
+junwon/predict
