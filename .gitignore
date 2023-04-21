@@ -2,10 +2,58 @@
 data/images/
 
 # Ignore .ipynb_checkpoints
-junwon/.ipynb_checkpoints
+.ipynb_checkpoints
 
 # 예측 데이터 파일 
 junwon/predict
 
 # 이미지 파일
 .jpg
+
+
+# Ignore Python bytecode files
+__pycache__/
+
+# Ignore FFM model files
+code/src/models/FFM/__pycache__/__init__.cpython-38.pyc
+code/src/models/FFM/__pycache__/FFM_model.cpython-38.pyc
+
+# Ignore CNN_FM model files
+code/src/models/CNN_FM/__pycache__/__init__.cpython-38.pyc
+code/src/models/CNN_FM/__pycache__/CNN_FM_model.cpython-38.pyc
+
+# Ignore DCN model files
+code/src/models/DCN/__pycache__/__init__.cpython-38.pyc
+code/src/models/DCN/__pycache__/DCN_model.cpython-38.pyc
+
+# Ignore DeepCoNN model files
+code/src/models/DeepCoNN/__pycache__/__init__.cpython-38.pyc
+code/src/models/DeepCoNN/__pycache__/DeepCoNN_model.cpython-38.pyc
+
+# Ignore FM model files
+code/src/models/FM/__pycache__/__init__.cpython-38.pyc
+code/src/models/FM/__pycache__/FM_model.cpython-38.pyc
+
+# Ignore NCF model files
+code/src/models/NCF/__pycache__/__init__.cpython-38.pyc
+code/src/models/NCF/__pycache__/NCF_model.cpython-38.pyc
+
+# Ignore WDN model files
+code/src/models/WDN/__pycache__/__init__.cpython-38.pyc
+code/src/models/WDN/__pycache__/WDN_model.cpython-38.pyc
+
+# Ignore ensembles files
+code/src/ensembles/__pycache__/ensembles.cpython-38.pyc
+code/src/__pycache__/__init__.cpython-38.pyc
+code/src/ensembles/__pycache__/ensembles.cpython-38.pyc
+code/src/models/__pycache__/__init__.cpython-38.pyc
+code/src/models/DCN/__pycache__/__init__.cpython-38.pyc
+code/src/models/DCN/__pycache__/DCN_model.cpython-38.pyc
+code/src/models/FFM/__pycache__/__init__.cpython-38.pyc
+code/src/models/FFM/__pycache__/FFM_model.cpython-38.pyc
+code/src/models/FM/__pycache__/__init__.cpython-38.pyc
+code/src/models/FM/__pycache__/FM_model.cpython-38.pyc
+code/src/models/NCF/__pycache__/__init__.cpython-38.pyc
+code/src/models/NCF/__pycache__/NCF_model.cpython-38.pyc
+code/src/models/WDN/__pycache__/__init__.cpython-38.pyc
+code/src/models/WDN/__pycache__/WDN_model.cpython-38.pyc
