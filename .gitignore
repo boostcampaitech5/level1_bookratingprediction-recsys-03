@@ -1,59 +1,20 @@
-# Ignore images in data folder
-data/images/
+# Jupyter Notebook에서 자동 생성되는 체크포인트 파일
+**/.ipynb_checkpoints
 
-# Ignore .ipynb_checkpoints
-.ipynb_checkpoints
+# Python 바이트코드 파일
+**/__pycache__
 
-# 예측 데이터 파일 
-junwon/predict
+# macOS에서 생성되는 DS_Store 파일
+**/.DS_Store
 
-# 이미지 파일
-.jpg
+# 데이터셋 이미지 파일
+data/images
 
+# 프로그램 실행 로그 파일
+code/log
 
-# Ignore Python bytecode files
-__pycache__/
+# 학습된 모델 파일
+code/saved_models
 
-# Ignore FFM model files
-code/src/models/FFM/__pycache__/__init__.cpython-38.pyc
-code/src/models/FFM/__pycache__/FFM_model.cpython-38.pyc
-
-# Ignore CNN_FM model files
-code/src/models/CNN_FM/__pycache__/__init__.cpython-38.pyc
-code/src/models/CNN_FM/__pycache__/CNN_FM_model.cpython-38.pyc
-
-# Ignore DCN model files
-code/src/models/DCN/__pycache__/__init__.cpython-38.pyc
-code/src/models/DCN/__pycache__/DCN_model.cpython-38.pyc
-
-# Ignore DeepCoNN model files
-code/src/models/DeepCoNN/__pycache__/__init__.cpython-38.pyc
-code/src/models/DeepCoNN/__pycache__/DeepCoNN_model.cpython-38.pyc
-
-# Ignore FM model files
-code/src/models/FM/__pycache__/__init__.cpython-38.pyc
-code/src/models/FM/__pycache__/FM_model.cpython-38.pyc
-
-# Ignore NCF model files
-code/src/models/NCF/__pycache__/__init__.cpython-38.pyc
-code/src/models/NCF/__pycache__/NCF_model.cpython-38.pyc
-
-# Ignore WDN model files
-code/src/models/WDN/__pycache__/__init__.cpython-38.pyc
-code/src/models/WDN/__pycache__/WDN_model.cpython-38.pyc
-
-# Ignore ensembles files
-code/src/ensembles/__pycache__/ensembles.cpython-38.pyc
-code/src/__pycache__/__init__.cpython-38.pyc
-code/src/ensembles/__pycache__/ensembles.cpython-38.pyc
-code/src/models/__pycache__/__init__.cpython-38.pyc
-code/src/models/DCN/__pycache__/__init__.cpython-38.pyc
-code/src/models/DCN/__pycache__/DCN_model.cpython-38.pyc
-code/src/models/FFM/__pycache__/__init__.cpython-38.pyc
-code/src/models/FFM/__pycache__/FFM_model.cpython-38.pyc
-code/src/models/FM/__pycache__/__init__.cpython-38.pyc
-code/src/models/FM/__pycache__/FM_model.cpython-38.pyc
-code/src/models/NCF/__pycache__/__init__.cpython-38.pyc
-code/src/models/NCF/__pycache__/NCF_model.cpython-38.pyc
-code/src/models/WDN/__pycache__/__init__.cpython-38.pyc
-code/src/models/WDN/__pycache__/WDN_model.cpython-38.pyc
+# 실행 결과물 저장 디렉토리
+code/submit
