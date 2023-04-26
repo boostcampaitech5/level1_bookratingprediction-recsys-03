@@ -1,0 +1,24 @@
+{
+    "data_path": "../data/",
+    "_model_list": ["FM", "FFM", "NCF", "WDN", "DCN", "CNN_FM", "DeepCoNN"],
+    "model": "FFDCN",
+    "data_shuffle": true,
+    "test_size": 0.2,
+    "seed": 42,
+
+    "batch_size": 256,
+    "epochs": 1,
+    "lr": 0.009975541184555565,
+    "weight_decay": 3.5588091978222633e-07,
+    "device": "cuda",
+
+    "FFM_EMBED_DIM": 20,
+
+    "DCN_EMBED_DIM": 6,
+    "DCN_MLP_DIM_LAYERS": 1,
+    "DCN_MLP_DIM_NUM": 2,
+    "DCN_MLP_DIMS": [13],
+    "DCN_DROPOUT": 0.25,
+    "DCN_NUM_LAYERS": 3
+
+}
