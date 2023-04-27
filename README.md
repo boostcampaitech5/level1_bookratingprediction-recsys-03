@@ -6,13 +6,10 @@
 :smirk: 황찬웅
 :smiley: 이준원
 
-## Create with respective directories 
-
-
 ## Project Configuration
 
+<img width="367" alt="image" src="https://user-images.githubusercontent.com/69078499/234792671-445f9767-14b8-4f31-9bba-3539f5fac1a7.png">
 
-## Final Code
 
 
 <br><br>
