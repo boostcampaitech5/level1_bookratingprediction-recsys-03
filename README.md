@@ -75,3 +75,16 @@ Notion, Github, Zoom, Slack, 카카오톡
 <br><br>
 
 ## 결론 및 개선 방안
+
+### 마스터 클래스 피드백
+- 데이터
+missing value, outlier 부분도 data 관점에서 살펴보기
+결측치를 모델기반이나 유사도 기반으로 채워보기
+피처 엔지니어링을 통해 추가 변수도 활용해보기 - 딥러닝 성능 개선
+- 모델
+이번 프로젝트에서는 FFM 분해 과정에서 생기는 latent vector를 넣는 방법을 사용
+concatenate skim gram, residual을 이용한 fusion 방법론도 좋다 (멀티 모달도 요즘 화두)
+attenion layer도 적용해서 성능을 높이는 것도 하나의 방법
+- CatBoost를 CPU를 이용해 돌릴 경우 속도는 느리지만 성능 개선이 크게 이루어질 수도 있다.
+- Optuna 라이브러리 사용시 최소값이 아닌 극솟값으로 수렴하게 될 수 있다.
+따라서, Optuna를 사용해서 얻은 하이퍼파라미터가 가장 좋다고 단언할 수는 없다.
