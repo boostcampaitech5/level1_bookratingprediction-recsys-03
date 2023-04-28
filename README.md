@@ -28,10 +28,7 @@ Notion, Github, Zoom, Slack, 카카오톡
 <br><br>
 
 ## 프로젝트 팀 구성 및 역할
-김현정 - EDA, 전처리, 모델링(AutoRec, LightGBM, XGBoost), 팀 깃헙 관리   
-민현지 - EDA, 전처리, 모델링(MF, LightFM), 발표   
-황찬웅 - EDA, 모델링(Catboost, LightGBM, HybridModel (FFM+DCN))   
-이준원 - EDA, 전처리, 모델링(SVD), 팀 노션 관리   
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/69078499/235096277-d3cc05ba-cc02-4143-a9d4-c1440b166f74.png">  
 
 <br><br>
 
@@ -102,13 +99,23 @@ Notion, Github, Zoom, Slack, 카카오톡
 <br>
 
 ### 3. 앙상블
+가중치를 곱하여 평균을 취하는 stacking 방식으로 앙상블을 진행하였습니다.
 
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/69078499/235096581-9df1f17b-e489-4b85-bf42-3059abfc3352.png">
+개별 모델 성능 (민트), 앙상블 성능 (파랑)
+<br>
+SVD 모델을 이용한 앙상블 시에 성능이 떨어지는 것을 확인하였습니다. SVD의 경우 일부 feature가 가지는 특징을 drop하게 되어 고려하게 되는 feature가 적어지는데, 이 때문에 다른 모델들과 stacking 방식으로 앙상블 진행했을 때 성능이 떨어지는 것으로 보여집니다.
+<br>
+가중치를 바꾸어가며 실험을 진행하였고 최종적으로 CatBoost 모델과 FFMDCN 하이브리드 모델을 1:1로 앙상블한 모델을 최종 솔루션으로 채택하게 되었습니다.
 
 <br>
-
-### 4. 결과
-
-<br><br>
+### 4. 리더보드 순위 및 성능 평가
+Public – 2등, RMSE 2.1099
+<img width="599" alt="image" src="https://user-images.githubusercontent.com/69078499/235097134-4eccebdb-6385-4d5d-9110-f943b5810600.png">
+<br>
+Private – 2등, RMSE 2.1074
+<img width="599" alt="image" src="https://user-images.githubusercontent.com/69078499/235097355-5a9af50c-d50f-4638-ad7a-696900660e2d.png">
+<br>
 
 ## 결론 및 개선 방안
 
