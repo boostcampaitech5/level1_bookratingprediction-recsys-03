@@ -93,8 +93,39 @@ Notion, Github, Zoom, Slack, 카카오톡
 
 ### 2. 사용한 모델
 #### 사용한 모델 종류
+- Baseline model - FFM, DCN, CNN_FM, DeepCONN
+- SVD, NMF, XGBoost, CatBoost, LightGBM, AutoRec, LightFM
+
+<br>
 #### Catboost 모델
+- CatBoost 모델을 선택한 이유
+캐글이나 데이콘 등의 분석 대회에서 (특히 정형데이터) XGBoost, LightGBM, CatBoost 등의 부스팅 기반 모델들이 압도적으로 좋은 성능을 보여주었습니다.
+이 중 주어진 데이터셋은 age와 year of publication feature을 제외한 모든 feature들이 categorical feature였기 때문에 이를 잘 처리하는 CatBoost 모델을 선택하였습니다.
+
+<br>
+- CatBoost가 categorical feature 처리에 좋은 이유
+1. target encoding: 범주형 변수를 수치형으로 변환하여 one-hot encoding에 비해 차원의 저주 문제를 완화할 수 있습니다.
+2. ordered boosting: 범주형 변수의 순서를 고려할 수 있습니다. 즉, 범주형 변수를 트리 노드의 분기 기준으로 사용할 때, 더 작은 카테고리가 더 낮은 값을 갖도록 순서를 부여합니다.
+3. Categorical Features Combination: 범주형 변수의 조합을 사용하여 새로운 변수를 만들어 범주형 변수들 간의 상호작용을 고려할 수 있습니다.
+실제로도 XGBoost, LightGBM과 비교하여 CatBoost의 RMSE 성능이 가장 좋았습니다.
+
+<br>
 #### FFM + DCN 모델
+
+- 가설: 머신러닝과 딥러닝의 장점을 섞은 모델을 만들면 좋은 성능을 보일 것입니다.
+- 가설 검정: FFM 분해과정에서 생기는 latent factor를 DCN의 인풋으로 넣는 하이브리드 모델을 만들어보았습니다.
+
+<br>
+- Hybrid Model (FFM + DCN)
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/69078499/235100707-fb8fa86d-3f80-4a39-9f68-3ca911a210b0.png">
+
+<br>
+DCN 모델은 input layer 다음에 cross network와 deep network를 추가한 모델입니다. Cross network는 input feature를 다양한 조합으로 곱한 값을 계산하여 high-order interactions를 학습하는데, 이때 FFM에서 추출된 latent factor를 사용했습니다.
+<br>
+FFM은 각 feature field에서 각 feature의 embedding을 계산하는 데에 사용되는데, 이 embedding 값은 cross network에서 사용되는 고차원 상호작용에 유용한 정보를 담고 있기 때문입니다.
+<br>
+따라서, FFM 모델의 latent factor를 DCN 모델의 cross network의 입력으로 사용하여 두 모델의 성능을 향상시킬 수 있었습니다.
+
 
 <br>
 
@@ -103,13 +134,16 @@ Notion, Github, Zoom, Slack, 카카오톡
 
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/69078499/235096581-9df1f17b-e489-4b85-bf42-3059abfc3352.png">
 개별 모델 성능 (민트), 앙상블 성능 (파랑)
-<br>
+<br><br>
 SVD 모델을 이용한 앙상블 시에 성능이 떨어지는 것을 확인하였습니다. SVD의 경우 일부 feature가 가지는 특징을 drop하게 되어 고려하게 되는 feature가 적어지는데, 이 때문에 다른 모델들과 stacking 방식으로 앙상블 진행했을 때 성능이 떨어지는 것으로 보여집니다.
-<br>
-가중치를 바꾸어가며 실험을 진행하였고 최종적으로 CatBoost 모델과 FFMDCN 하이브리드 모델을 1:1로 앙상블한 모델을 최종 솔루션으로 채택하게 되었습니다.
 
 <br>
+**가중치를 바꾸어가며 실험을 진행하였고 최종적으로 CatBoost 모델과 FFM-DCN 하이브리드 모델을 1:1로 앙상블한 모델을 최종 솔루션으로 채택하게 되었습니다.**
+
+<br>
+
 ### 4. 리더보드 순위 및 성능 평가
+<br>
 Public – 2등, RMSE 2.1099
 <img width="599" alt="image" src="https://user-images.githubusercontent.com/69078499/235097134-4eccebdb-6385-4d5d-9110-f943b5810600.png">
 <br>
