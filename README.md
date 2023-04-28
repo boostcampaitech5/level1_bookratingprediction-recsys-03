@@ -6,15 +6,20 @@
 :smirk: 황찬웅
 :smiley: 이준원
 
-## Project Configuration
+<br>
 
-<img width="367" alt="image" src="https://user-images.githubusercontent.com/69078499/234792671-445f9767-14b8-4f31-9bba-3539f5fac1a7.png">
+## Project Configuration
+<br>
+
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/69078499/234792671-445f9767-14b8-4f31-9bba-3539f5fac1a7.png">
 
 
 
 <br><br>
 
 ## 프로젝트 개요
+<br>
+
 ### 1. 프로젝트 주제 및 목표
 
 &ensp;이번 대회는 책과 관련된 정보, 소비자의 정보, 평점 데이터를 활용하여 각 사용자가 책에 대해 얼마나 평점을 줄지 예측하는 개인화된 상품 추천 대회입니다. 대회에서는 정형 데이터부터 이미지, 텍스트 데이터까지 다양한 데이터를 활용하여 추천 시스템의 스킬을 적용할 수 있습니다. 최종 결과물은 .csv파일로 제출되며, 평가 데이터는 60%가 Public 점수 계산에 사용되고, 나머지 40%는 Private 결과 계산에 사용됩니다. RMSE를 사용하여 최종 리더보드의 성능을 수치화하였습니다.   
@@ -22,17 +27,23 @@
 <br>
 
 ### 2. 프로젝트 개발 환경
-v100 서버, python   
-Notion, Github, Zoom, Slack, 카카오톡
+<br>
+
+- v100 서버, python   
+<br>
+- Notion, Github, Zoom, Slack, 카카오톡
 
 <br><br>
 
 ## 프로젝트 팀 구성 및 역할
+<br>
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/69078499/235096277-d3cc05ba-cc02-4143-a9d4-c1440b166f74.png">  
 
 <br><br>
 
 ## 프로젝트 수행 내용 및 결과
+<br>
+
 ### 1. EDA 및 데이터 전처리
 #### 데이터
 - users.csv
@@ -97,26 +108,37 @@ Notion, Github, Zoom, Slack, 카카오톡
 - SVD, NMF, XGBoost, CatBoost, LightGBM, AutoRec, LightFM
 
 <br>
+
 #### Catboost 모델
 - CatBoost 모델을 선택한 이유
-캐글이나 데이콘 등의 분석 대회에서 (특히 정형데이터) XGBoost, LightGBM, CatBoost 등의 부스팅 기반 모델들이 압도적으로 좋은 성능을 보여주었습니다.
-이 중 주어진 데이터셋은 age와 year of publication feature을 제외한 모든 feature들이 categorical feature였기 때문에 이를 잘 처리하는 CatBoost 모델을 선택하였습니다.
+
+    캐글이나 데이콘 등의 분석 대회에서 (특히 정형데이터) XGBoost, LightGBM, CatBoost 등의 부스팅 기반 모델들이 압도적으로 좋은 성능을 보여주었습니다.
+    <br><br>
+    이 중 주어진 데이터셋은 age와 year of publication feature을 제외한 모든 feature들이 categorical feature였기 때문에 이를 잘 처리하는 CatBoost 모델을 선택하였습니다.
 
 <br>
+
 - CatBoost가 categorical feature 처리에 좋은 이유
-1. target encoding: 범주형 변수를 수치형으로 변환하여 one-hot encoding에 비해 차원의 저주 문제를 완화할 수 있습니다.
-2. ordered boosting: 범주형 변수의 순서를 고려할 수 있습니다. 즉, 범주형 변수를 트리 노드의 분기 기준으로 사용할 때, 더 작은 카테고리가 더 낮은 값을 갖도록 순서를 부여합니다.
-3. Categorical Features Combination: 범주형 변수의 조합을 사용하여 새로운 변수를 만들어 범주형 변수들 간의 상호작용을 고려할 수 있습니다.
+
+    1. target encoding: 범주형 변수를 수치형으로 변환하여 one-hot encoding에 비해 차원의 저주 문제를 완화할 수 있습니다.
+
+    2. ordered boosting: 범주형 변수의 순서를 고려할 수 있습니다. 즉, 범주형 변수를 트리 노드의 분기 기준으로 사용할 때, 더 작은 카테고리가 더 낮은 값을 갖도록 순서를 부여합니다.
+
+    3. Categorical Features Combination: 범주형 변수의 조합을 사용하여 새로운 변수를 만들어 범주형 변수들 간의 상호작용을 고려할 수 있습니다.
 실제로도 XGBoost, LightGBM과 비교하여 CatBoost의 RMSE 성능이 가장 좋았습니다.
 
 <br>
+
 #### FFM + DCN 모델
 
-- 가설: 머신러닝과 딥러닝의 장점을 섞은 모델을 만들면 좋은 성능을 보일 것입니다.
-- 가설 검정: FFM 분해과정에서 생기는 latent factor를 DCN의 인풋으로 넣는 하이브리드 모델을 만들어보았습니다.
+    가설: 머신러닝과 딥러닝의 장점을 섞은 모델을 만들면 좋은 성능을 보일 것입니다.
+    
+    검정: FFM 분해과정에서 생기는 latent factor를 DCN의 인풋으로 넣는 하이브리드 모델을 만들어보았습니다.
 
 <br>
+
 - Hybrid Model (FFM + DCN)
+
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/69078499/235100707-fb8fa86d-3f80-4a39-9f68-3ca911a210b0.png">
 
 <br>
@@ -138,20 +160,28 @@ FFM은 각 feature field에서 각 feature의 embedding을 계산하는 데에 �
 SVD 모델을 이용한 앙상블 시에 성능이 떨어지는 것을 확인하였습니다. SVD의 경우 일부 feature가 가지는 특징을 drop하게 되어 고려하게 되는 feature가 적어지는데, 이 때문에 다른 모델들과 stacking 방식으로 앙상블 진행했을 때 성능이 떨어지는 것으로 보여집니다.
 
 <br>
+
 **가중치를 바꾸어가며 실험을 진행하였고 최종적으로 CatBoost 모델과 FFM-DCN 하이브리드 모델을 1:1로 앙상블한 모델을 최종 솔루션으로 채택하게 되었습니다.**
 
 <br>
 
 ### 4. 리더보드 순위 및 성능 평가
-<br>
-Public – 2등, RMSE 2.1099
-<img width="599" alt="image" src="https://user-images.githubusercontent.com/69078499/235097134-4eccebdb-6385-4d5d-9110-f943b5810600.png">
-<br>
-Private – 2등, RMSE 2.1074
-<img width="599" alt="image" src="https://user-images.githubusercontent.com/69078499/235097355-5a9af50c-d50f-4638-ad7a-696900660e2d.png">
+
 <br>
 
+- Public – 2등, RMSE 2.1099
+
+<img width="599" alt="image" src="https://user-images.githubusercontent.com/69078499/235097134-4eccebdb-6385-4d5d-9110-f943b5810600.png">
+
+<br>
+
+- Private – 2등, RMSE 2.1074
+
+<img width="599" alt="image" src="https://user-images.githubusercontent.com/69078499/235097355-5a9af50c-d50f-4638-ad7a-696900660e2d.png">
+<br><br>
+
 ## 결론 및 개선 방안
+<br>
 
 ### 마스터 클래스 피드백
 - 데이터:
