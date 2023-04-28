@@ -8,7 +8,12 @@
 
 <br>
 
+
+<span style='color:#00BFFF'>
+
 ## Project Configuration
+</span>
+
 <br>
 
 <img width="400" alt="image" src="https://user-images.githubusercontent.com/69078499/234792671-445f9767-14b8-4f31-9bba-3539f5fac1a7.png">
@@ -17,8 +22,13 @@
 
 <br><br>
 
+<span style='color:#00BFFF'>
+
 ## 프로젝트 개요
+</span>
+
 <br>
+
 
 ### 1. 프로젝트 주제 및 목표
 
@@ -35,13 +45,22 @@
 
 <br><br>
 
+<span style='color:#00BFFF'>
+
 ## 프로젝트 팀 구성 및 역할
+</span>
+
 <br>
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/69078499/235096277-d3cc05ba-cc02-4143-a9d4-c1440b166f74.png">  
 
 <br><br>
 
+<span style='color:#00BFFF'>
+
 ## 프로젝트 수행 내용 및 결과
+
+</span>
+
 <br>
 
 ### 1. EDA 및 데이터 전처리
@@ -161,7 +180,8 @@ SVD 모델을 이용한 앙상블 시에 성능이 떨어지는 것을 확인하
 
 <br>
 
-**가중치를 바꾸어가며 실험을 진행하였고 최종적으로 CatBoost 모델과 FFM-DCN 하이브리드 모델을 1:1로 앙상블한 모델을 최종 솔루션으로 채택하게 되었습니다.**
+<span style='color:#2D3748; background-color: #fff5b1'>
+가중치를 바꾸어가며 실험을 진행하였고 최종적으로 CatBoost 모델과 FFM-DCN 하이브리드 모델을 1:1로 앙상블한 모델을 최종 솔루션으로 채택하게 되었습니다.</span>
 
 <br>
 
@@ -180,7 +200,12 @@ SVD 모델을 이용한 앙상블 시에 성능이 떨어지는 것을 확인하
 <img width="599" alt="image" src="https://user-images.githubusercontent.com/69078499/235097355-5a9af50c-d50f-4638-ad7a-696900660e2d.png">
 <br><br>
 
+<span style='color:#00BFFF'>
+
 ## 결론 및 개선 방안
+
+</span>
+
 <br>
 
 ### 마스터 클래스 피드백
