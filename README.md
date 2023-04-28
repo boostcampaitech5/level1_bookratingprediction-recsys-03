@@ -49,12 +49,48 @@ Notion, Github, Zoom, Slack, 카카오톡
     - 비정형 데이터인 summary와 img_url, img_path는 사용하지 않음
 
 #### users 결측치 처리: age
+- 실험 1 : mean 값으로 결측치 채우기 - 2.4605
+- 실험 2 : median 값으로 결측치 채우기 - 2.4605
+- 실험 3 : 분포를 고려하여 random sampling으로 채우기 - 2.4611
+
+- 결과: Age map을 이용하여 indexing을 진행해주기 때문에 각 방법 별로 rmse 값에 큰 차이 존재하지 않아서 가장 구현이 용이한 mean 값을 이용하여 결측치를 채우기로 결정
 
 #### users 결측치 처리: location
+- 아이디어
+    - city 정보를 이용해서 state, country  결측치 채우
+
+- 전처리 과정
+    - city, state, country로 location을 분해하여 feature를 재구성
+    - 가장 작은 단위인 city가 null이 아닌 경우에 비어 있는 state와 country의 값을 city 정보를 이용해 채움
+    - users 데이터셋에서 city에 해당하는 state와 country 정보가 이미 있는 경우에는 해당하는 정보 중 최빈값으로 채움
+    - 해당 방법으로 채울 수 없는 경우, 2개 이상 존재하는 city에 한해서 실제 지리적인 배경 지식을 이용하여 하드 코딩
 
 #### books 결측치 처리: language
+- 아이디어
+    - ISBN의 1 ~ 5자리 prefix 에 따라서 country, region, language area가 정해짐
+    - range별로 prefix의 길이가 정해짐
+    - ex) 0, 1, 2, 3, 4, 7로 시작 -> 한 자리 prerfix, 8로 시작 -> 두 자리 prefix
+
+- 전처리 과정 
+    - 주어진 book data를 활용해 해당 prefix를 가지는 책 중 가장 많은 빈도로 나타나는 language로 결측치를 채움
+    - 1로 채우지 못한 결측치의 경우 최빈값인 ‘en’으로 채
+
+- 결과: RMSE 2.4605에서 2.4496으로 약간의 성능 향상
+
 
 #### books 결측치 처리: category
+- 아이디어 
+    - book_title을 이용해 책의 category 결측치를 채우자
+
+- 전처리 과정 
+    - category 값의 존재 유무로 train data와 test data로 split 
+    - book_title을 pretrained BERT 모델을 이용해 embedding
+    - train data의 embedding vector를 이용해 category를 예측하는 KNN을 학습
+    - 학습된 KNN 모델을 이용해 test data의 category를 예측
+    - 예측값으로 category 결측치를 채움
+
+- 결과: 2.1124에서 2.1113로 약간의 성능 향상
+
 
 <br>
 
