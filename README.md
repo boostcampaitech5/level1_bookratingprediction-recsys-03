@@ -90,12 +90,16 @@
     - language와 category의 결측치가 40% 이상
     - 비정형 데이터인 summary와 img_url, img_path는 사용하지 않음
 
+<br>
+
 #### users 결측치 처리: age
 - 실험 1 : mean 값으로 결측치 채우기 - 2.4605
 - 실험 2 : median 값으로 결측치 채우기 - 2.4605
 - 실험 3 : 분포를 고려하여 random sampling으로 채우기 - 2.4611
 
 - 결과: Age map을 이용하여 indexing을 진행해주기 때문에 각 방법 별로 rmse 값에 큰 차이 존재하지 않아서 가장 구현이 용이한 mean 값을 이용하여 결측치를 채우기로 결정
+
+<br>
 
 #### users 결측치 처리: location
 - 아이디어
@@ -106,6 +110,8 @@
     - 가장 작은 단위인 city가 null이 아닌 경우에 비어 있는 state와 country의 값을 city 정보를 이용해 채움
     - users 데이터셋에서 city에 해당하는 state와 country 정보가 이미 있는 경우에는 해당하는 정보 중 최빈값으로 채움
     - 해당 방법으로 채울 수 없는 경우, 2개 이상 존재하는 city에 한해서 실제 지리적인 배경 지식을 이용하여 하드 코딩
+
+<br>
 
 #### books 결측치 처리: language
 - 아이디어
@@ -119,6 +125,7 @@
 
 - 결과: RMSE 2.4605에서 2.4496으로 약간의 성능 향상
 
+<br>
 
 #### books 결측치 처리: category
 - 아이디어 
